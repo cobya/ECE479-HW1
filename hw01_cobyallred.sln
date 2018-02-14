@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hw01_cobyallred", "hw01_cobyallred\hw01_cobyallred.vcxproj", "{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}.Debug|x64.ActiveCfg = Debug|x64
+		{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}.Debug|x64.Build.0 = Debug|x64
+		{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}.Debug|x86.ActiveCfg = Debug|Win32
+		{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}.Debug|x86.Build.0 = Debug|Win32
+		{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}.Release|x64.ActiveCfg = Release|x64
+		{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}.Release|x64.Build.0 = Release|x64
+		{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}.Release|x86.ActiveCfg = Release|Win32
+		{EDBE38A3-5E5A-47C8-BA0A-62BD3A864D48}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD8C6472-53D1-450D-97BF-82B5832BC370}
+	EndGlobalSection
+EndGlobal
