@@ -1,9 +1,18 @@
+/*
+* Define the various attributes of a state and allow updating it.
+*/
+
 #pragma once
+#include <string>
+
 class State
 {
 private:
 	int jugAWater;
 	int jugBWater;
+	std::string jugAName;
+	std::string jugBName;
+
 public:
 	State() {
 		jugAWater = 0;
@@ -34,7 +43,11 @@ public:
 		return;
 	}
 
-	bool isStateGoal(State goalState);
+	State copyState() {
+		return State(jugAWater, jugBWater);
+	}
+
+	bool isGoalState(State goalState);
 
 	bool areStatesEqual(State compareState);
 

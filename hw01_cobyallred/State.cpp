@@ -1,8 +1,7 @@
 #include "State.h"
-#include <iostream>
-#include <fstream>
 
-bool State::isStateGoal(State goalState)
+// check if a state is equal to a goal state
+bool State::isGoalState(State goalState)
 {
 	if ((goalState.getJugAWater() != -1) && (goalState.getJugAWater() != jugAWater)) {
 		return false;
@@ -15,6 +14,7 @@ bool State::isStateGoal(State goalState)
 	return true;
 }
 
+// check if two states are equal
 bool State::areStatesEqual(State compareState)
 {
 	if ((compareState.getJugAWater() == jugAWater) && (compareState.getJugBWater() == jugBWater)) {
@@ -25,8 +25,9 @@ bool State::areStatesEqual(State compareState)
 	}
 }
 
+// return a string of the state
 std::string State::getStateString()
 {
-	std::string returnString = "(" + jugAWater + ',' + jugBWater + ')';
+	std::string returnString = "(" + std::to_string(jugAWater) + "," + std::to_string(jugBWater) + ")";
 	return returnString;
 }

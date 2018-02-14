@@ -20,20 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Execute.h" />
-    <ClInclude Include="Random.h" />
-    <ClInclude Include="Rules.h" />
     <ClInclude Include="State.h" />
-    <ClInclude Include="Strategy.h" />
-    <ClInclude Include="Systematic.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Execute.cpp" />
     <ClCompile Include="hw01_cobyallred.cpp" />
-    <ClCompile Include="Random.cpp" />
-    <ClCompile Include="Rules.cpp" />
     <ClCompile Include="State.cpp" />
-    <ClCompile Include="Strategy.cpp" />
-    <ClCompile Include="Systematic.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

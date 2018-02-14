@@ -1,24 +1,32 @@
 #pragma once
 
-#include <string>
 #include <iostream>
+#include <string>
 #include <fstream>
+#include <sstream>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <unordered_set>
+#include <ctime>
 #include "State.h"
-#include "Rules.h"
-#include "Random.h"
-#include "Systematic.h"
 
 class Execute
 {
 private:
-	char* inputFileName; // Input filename
-	std::ifstream inputFile; // Input filestream
-	char* outputFileName; // Output filename
-	std::ofstream outputFile; // Output filestream
+	// Input and Output variables
+	char* inputFileName;
+	std::ifstream inputFile;
+	char* outputFileName;
+	std::ofstream outputFile;
 
+	// Problem variables
 	int jugAVolume;
 	int jugBVolume;
+	std::string jugAName;
+	std::string jugBName;
 	State initialState;
+	State currentState;
 	State goalState;
 
 public:
@@ -34,6 +42,24 @@ public:
 
 	bool getInitValues();
 
-	void runStrategy(std::string strategyType);
+	bool isRuleValid(State checkState, int rule);
+
+	std::string useRule(int rule);
+
+	State checkRuleOutcome(State checkState, int rule);
+
+	void runStrategy(char strategyType);
+
+	std::stack<State> DFS(State initialState, State goalState);
+
+	std::vector<State> getNextStatesForState(State checkState);
+
+	std::vector<int> getNextRulesForState(State checkState);
+
+	bool createOutput();
+
+	void outputString(std::string outputText);
+
+	void closeOutput();
 };
 
