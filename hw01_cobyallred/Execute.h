@@ -1,13 +1,11 @@
 #pragma once
 
 #include <iostream>
-#include <string>
 #include <fstream>
-#include <sstream>
+#include <string>
 #include <vector>
 #include <stack>
 #include <queue>
-#include <unordered_set>
 #include <ctime>
 #include "State.h"
 
@@ -16,9 +14,9 @@ class Execute
 private:
 	// Input and Output variables
 	char* inputFileName;
-	std::ifstream inputFile;
 	char* outputFileName;
-	std::ofstream outputFile;
+	FILE* inputFile;
+	FILE* outputFile;
 
 	// Problem variables
 	int jugAVolume;
@@ -30,15 +28,8 @@ private:
 	State goalState;
 
 public:
-	Execute() {
-		inputFileName = NULL;
-		outputFileName = NULL;
-	}
-
-	Execute(char* inFileName, char* outFileName) {
-		inputFileName = inFileName;
-		outputFileName = outFileName;
-	}
+	Execute();
+	Execute(char* inFileName, char* outFileName);
 
 	bool getInitValues();
 
@@ -62,4 +53,3 @@ public:
 
 	void closeOutput();
 };
-

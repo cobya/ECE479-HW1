@@ -4,15 +4,12 @@
 */
 
 #include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
 #include "Execute.h"
 
 int main(int argc, char *argv[]) {
 	if (argc != 2) {
-		std::cout << "Usage: hw01_allred inputFile" << std::endl;
-		return EXIT_FAILURE;
+		std::cout << "Usage: hw01_cobyallred inputFile" << std::endl;
+		return 1;
 	}
 
 	// create the execute class with the input and output
@@ -26,7 +23,7 @@ int main(int argc, char *argv[]) {
 	}
 	else {
 		std::cout << "Error getting input values. Please specify a valid input file." << std::endl;
-		return EXIT_FAILURE;
+		return 1;
 	}
 
 	// execute the random strategy
@@ -38,5 +35,5 @@ int main(int argc, char *argv[]) {
 	// close the output file
 	programExecute.closeOutput();
 
-	return EXIT_SUCCESS;
+	return 0;
 }

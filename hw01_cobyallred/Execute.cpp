@@ -1,47 +1,45 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "Execute.h"
+
+Execute::Execute() {
+	this->inputFileName = NULL;
+	this->outputFileName = NULL;
+}
+
+Execute::Execute(char* inFileName, char* outFileName) {
+	this->inputFileName = inFileName;
+	this->outputFileName = outFileName;
+}
 
 // Get the intial values of the problem from the input file
 bool Execute::getInitValues()
 {
-	inputFile.open(inputFileName); // Opens the file
+	inputFile = fopen(inputFileName, "r"); // Open the file for reading
 
-	if (inputFile.is_open()) { // If open, get lines
-		std::string inputLine;
-		int jugAValue, jugBValue;
-
-		// get A capacity
-		getline(inputFile, inputLine, ':');
-		getline(inputFile, inputLine);
-		std::istringstream(inputLine) >> jugAValue;
-		jugAVolume = jugAValue;
+	if (inputFile != NULL) { // If open, get lines
+		int jugAValue = 0, jugBValue = 0;
+		
+		// get A and B capacity
+		fscanf(inputFile, "Capacity of jug A: %d\n", &jugAVolume);
+		fscanf(inputFile, "Capacity of jug B: %d\n", &jugBVolume);
 		jugAName = std::to_string(jugAVolume) + "-gallon jug";
-
-		// get B capacity
-		getline(inputFile, inputLine, ':');
-		getline(inputFile, inputLine);
-		std::istringstream(inputLine) >> jugBValue;
-		jugBVolume = jugBValue;
 		jugBName = std::to_string(jugBVolume) + "-gallon jug";
 
 		// get init values
-		getline(inputFile, inputLine, ':');
-		getline(inputFile, inputLine);
-		std::stringstream initStateLine(inputLine);
-		initStateLine >> jugAValue;
-		initStateLine >> jugBValue;
+		fscanf(inputFile, "Initial state: %d %d\n", &jugAValue, &jugBValue);
 
 		// set initial state
 		initialState = State(jugAValue, jugBValue);
 
 		// get goal values
-		getline(inputFile, inputLine, ':');
-		getline(inputFile, inputLine);
-		std::stringstream goalStateLine(inputLine);
-		goalStateLine >> jugAValue;
-		goalStateLine >> jugBValue;
+		fscanf(inputFile, "Goal state: %d %d\n", &jugAValue, &jugBValue);
 
 		// set goal state
 		goalState = State(jugAValue, jugBValue);
+
+		// close the input
+		fclose(inputFile);
 	}
 	else {
 		return false; // False to exit program
@@ -371,25 +369,27 @@ std::vector<int> Execute::getNextRulesForState(State checkState)
 // Start the output stream
 bool Execute::createOutput()
 {
-	outputFile.open("output.txt"); // Opens the file
+	outputFile = fopen("output.txt", "w");
 
-	if (outputFile.is_open()) { // If open, get lines
+	if (outputFile != NULL) { // If open, get lines
 		return true;
 	}
 	else {
 		return false; // False to exit program
 	}
+	return true;
 }
 
 // Send a string of output text
 void Execute::outputString(std::string outputText)
 {
 	std::cout << outputText << std::endl;
-	outputFile << outputText << std::endl;
+	fprintf(outputFile, outputText.c_str());
+	fprintf(outputFile, "\n");
 }
 
 // Close the output file stream
 void Execute::closeOutput()
 {
-	outputFile.close();
+	fclose(outputFile);
 }
